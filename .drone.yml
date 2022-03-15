@@ -34,6 +34,29 @@ steps:
     commands:
       - cd cmd/gtoken-webhook
       - go test --race -v ./...
+
+  - name: docker-beta-push gtoken
+    image: plugins/docker
+    environment:
+      GITHUB_TOKEN:
+        from_secret: github_token
+    settings:
+      context: cmd/gtoken
+      dockerfile: cmd/gtoken/Dockerfile
+      repo: harbor.shipttech.com/production/${DRONE_REPO_NAME}
+      tags:
+        - beta
+        - ${DRONE_TAG}
+        - ${DRONE_COMMIT_SHA}
+      build_args_from_env:
+        - GITHUB_TOKEN
+    when:
+      branch:
+        - master
+      event:
+        include:
+          - push
+
   - name: docker-prod-push gtoken
     image: plugins/docker
     environment:
