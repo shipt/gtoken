@@ -40,7 +40,11 @@ CMD ["/gtoken"]
 #
 # ------ gtoken release Docker image ------
 #
-FROM scratch
+FROM alpine:3.11
+
+# Run as Envoy user to allow compatibility with Istio-CNI.
+# Istio issue: https://github.com/istio/istio/issues/23802
+USER 1337
 
 # copy CA certificates
 COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
