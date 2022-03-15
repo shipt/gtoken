@@ -46,7 +46,6 @@ steps:
       repo: harbor.shipttech.com/production/${DRONE_REPO_NAME}
       tags:
         - beta
-        - ${DRONE_TAG}
         - ${DRONE_COMMIT_SHA}
       build_args_from_env:
         - GITHUB_TOKEN
