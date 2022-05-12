@@ -12,10 +12,10 @@ webhooks:
         namespace: default
         path: "/pods"
       caBundle: ${CA_BUNDLE}
+    sideEffects: None
+    admissionReviewVersions: ["v1beta1"]
     rules:
-      - operations: [ "CREATE" ]
+      - operations: ["CREATE"]
         apiGroups: ["*"]
         apiVersions: ["*"]
         resources: ["pods"]
-
-
