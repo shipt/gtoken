@@ -3,9 +3,9 @@ module github.com/doitintl/gtoken-webhook
 go 1.13
 
 require (
-	github.com/google/go-cmp v0.3.1
-	github.com/prometheus/client_golang v1.3.0
-	github.com/sirupsen/logrus v1.4.2
+	github.com/google/go-cmp v0.5.5
+	github.com/prometheus/client_golang v1.11.1
+	github.com/sirupsen/logrus v1.6.0
 	github.com/slok/kubewebhook v0.3.0
 	github.com/urfave/cli v1.22.2
 	golang.org/x/oauth2 v0.0.0-20191202225959-858c2ad4c8b6 // indirect
